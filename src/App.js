@@ -1,17 +1,26 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import Menu from "./components/MenuComponent";
+import { DISHES } from './shared/dishes';
 import "./App.css";
 import { Navbar, NavbarBrand } from "reactstrap";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      dishes: DISHES
+    }
+  }
   render() {
     return (
       <div className="App">
         <Navbar dark color="primary">
           <div className="container">
-            <NavbarBrand href="/">Ojuelegba</NavbarBrand>
+            <NavbarBrand href="/">Ojuelegba Restaurant</NavbarBrand>
           </div>
         </Navbar>
+        <Menu dishes={this.state.dishes} />
       </div>
     );
   }
